@@ -1,0 +1,1 @@
+/Users/ben/.42plugin/cache/applied-artificial-intelligence/claude-code-toolkit/plan/latest/plan/plan.md

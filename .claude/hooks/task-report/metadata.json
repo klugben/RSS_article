@@ -1,0 +1,7 @@
+{
+  "name": "task-report",
+  "type": "hook",
+  "author": "KlugBen",
+  "description": "Stop hook: 自动生成任务执行报告到 .42cog/work/",
+  "event": "Stop"
+}

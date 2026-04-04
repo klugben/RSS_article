@@ -1,0 +1,1 @@
+/Users/ben/.42plugin/cache/shintaro-sprech/agent-orchestrator-template/task/latest/task/task.md

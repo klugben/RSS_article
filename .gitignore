@@ -57,10 +57,10 @@ dist/
 # 用户自定义忽略
 # ====================================
 source/*
-!source/RSS_article/
-source/RSS_article/*
-!source/RSS_article/SOUL.md
-!source/RSS_article/USER.md
+!source/*/
+source/*/*
+!**/SOUL.md
+!**/USER.md
 input/
 output/
 note/
@@ -69,7 +69,6 @@ chats/
 *.pdf
 *.personal
 cookies.txt
-.42cog/
 .42plugin/
 .claude/
 

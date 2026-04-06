@@ -1,8 +1,55 @@
 # Phase 3 - 规划总览
 
-> 状态: ⬜ 未开始
+> 状态: 🟡 进行中
 > 最后更新: 2026-04-06
 
 ## 目标
 
 - 将 Phase 1 / Phase 2 产物拆解为 Task Group 和 Sprint
+- 完成 Agent 配置、部署和端到端测试交付
+
+## Sprint 划分
+
+### Sprint-01: Agent 配置完善与本地验证
+
+| # | 任务 | 说明 | 状态 |
+|---|------|------|------|
+| 01-1 | 完善 SOUL.md | 补充 digest.db 初始化、去重查询、错误处理规则 | ✅ |
+| 01-2 | 完善 USER.md | 更新 SQL 查询添加去重过滤、添加 digest.db 配置 | ✅ |
+| 01-3 | 本地行为验证 | 模拟完整流程，验证 Agent 输出格式符合 UI mockup | ✅ |
+
+### Sprint-02: 部署交付与端到端测试
+
+| # | 任务 | 说明 | 状态 |
+|---|------|------|------|
+| 02-1 | 部署到腾讯云 | 同步配置文件到 Agent workspace、初始化 digest.db | ⬜ |
+| 02-2 | 配置 OpenClaw Cron | 注册每日 8:00 定时任务、验证触发 | ⬜ |
+| 02-3 | 端到端测试 | 使用真实 RSS 数据验证完整流程 | ⬜ |
+
+## 任务依赖
+
+```
+Phase 1/2 产物
+      │
+      ▼
+┌─ Sprint-01 ──────────────────┐
+│ 01-1 SOUL.md ──┬──► 01-3 验证 │
+│ 01-2 USER.md ──┘              │
+└────────────┬──────────────────┘
+             │
+             ▼
+┌─ Sprint-02 ──────────────────┐
+│ 02-1 部署 ──► 02-2 Cron ──► 02-3 E2E 测试 │
+└──────────────────────────────┘
+```
+
+## 上游产物映射
+
+| Sprint 任务 | 消费的上游产物 |
+|------------|--------------|
+| 01-1 SOUL.md | architecture.md（数据流）、api-behavior.md（接口序列）、ux-flow.md（消息格式）、ui-mockup.md（格式规范） |
+| 01-2 USER.md | er-model.md（双库设计）、api-behavior.md（SQL 契约）、tech-stack-decision.md（D5 去重决策） |
+| 01-3 本地验证 | ui-mockup.md（4 种场景 mockup） |
+| 02-1 部署 | architecture.md（部署架构）、tech-stack-decision.md（技术栈） |
+| 02-2 Cron | api-behavior.md（Cron 行为契约） |
+| 02-3 E2E | ux-flow.md（核心交互流 + 异常场景） |

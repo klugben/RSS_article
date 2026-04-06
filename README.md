@@ -51,4 +51,4 @@ RSS_article/
 |-------|------|------|
 | Phase 1 | 设计思维阶段 | 已完成 |
 | Phase 2 | 软件工程架构阶段 | 已完成 |
-| Phase 3 | Sprint 规划与开发交付 | Sprint-01 ✅ Sprint-02 ✅ Sprint-03 ✅ 已上线 |
+| Phase 3 | Sprint 规划与开发交付 | Sprint-01 ✅ Sprint-02 ✅ Sprint-03 ✅ Sprint-04 进行中 |

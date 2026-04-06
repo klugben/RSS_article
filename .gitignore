@@ -56,7 +56,11 @@ dist/
 # ====================================
 # 用户自定义忽略
 # ====================================
-source/
+source/*
+!source/RSS_article/
+source/RSS_article/*
+!source/RSS_article/SOUL.md
+!source/RSS_article/USER.md
 input/
 output/
 note/

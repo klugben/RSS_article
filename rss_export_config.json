@@ -1,0 +1,21 @@
+{
+  "base_dir": "/root/tencent_rsync_mac/RSS_article",
+  "repo_dir": "/root/tencent_rsync_mac/RSS_article/lumen",
+  "lumen_bin": "/root/tencent_rsync_mac/RSS_article/lumen/target/release/lumen",
+  "db_path": "/root/tencent_rsync_mac/RSS_article/lumen-data/feeds.db",
+  "output_dir": "/root/tencent_rsync_mac/RSS_article/output",
+  "output_layout": "订阅源/主题/YYYY-MM-DD 标题.md",
+  "image_layout": "与 md 同级的 <文件名>_assets/ 目录",
+  "current_feeds": [
+    {
+      "id": 2,
+      "title": "老布的AI知识库",
+      "url": "https://www.laobu.com/feed.xml"
+    }
+  ],
+  "notes": [
+    "导出脚本会读取数据库中的文章，按订阅源和主题输出 Markdown。",
+    "图片会本地化下载到文章同级 _assets 目录，并把 Markdown 图片链接改为相对路径。",
+    "重新抓取或新增订阅后，运行 run_rss_export.sh 即可重建 output。"
+  ]
+}

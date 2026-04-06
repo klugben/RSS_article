@@ -1,58 +1,52 @@
-# AI原生项目模板
+# RSS_article
 
-这是一个基于认知敏捷法(42COG)的AI原生项目初始化模板。
+基于 lumen（Rust RSS 阅读器）抓取 RSS 订阅源，通过 OpenClaw Agent 每日自动聚合摘要，推送到飞书群组。
+
+## 项目概述
+
+- **类型**: 信息聚合与定时推送
+- **技术栈**: Python + SQLite + OpenClaw + 飞书
+- **部署环境**: 腾讯云 Ubuntu 24.04
+
+## 核心流程
+
+```
+lumen fetch → feeds.db → OpenClaw Agent（每日 8:00 Cron）
+  → 按主题分类 → 生成摘要（≤400字） → 飞书群组推送
+```
 
 ## 目录结构
 
 ```
-projectname/
-├── .42cog/              # 认知敏捷法核心文件
+RSS_article/
+├── .42cog/              # 认知敏捷法配置
 │   ├── meta/            # 项目元信息
 │   ├── real/            # 现实约束
 │   ├── cog/             # 认知模型
-│   ├── spec/            # 规约文档
-│   ├── work/            # 工作记录
-│   └── others/          # 其他文档
-├── .42plugin/           # 插件技能库
+│   └── work/            # 工作记录
 ├── .claude/             # Claude Code 配置
-├── notes/               # 项目笔记和文档
-├── source/              # 原始素材和资源（不纳入版本控制）
-└── src/                 # 源代码目录
+├── config/              # 飞书等配置（敏感信息）
+├── docs/
+│   ├── dashboard/       # PM 阶段追踪
+│   ├── specs/           # 需求与设计规约
+│   ├── reports/         # 测试与部署报告
+│   └── template.md      # 简报格式模板
+├── lumen/               # lumen RSS 阅读器
+├── lumen-data/          # SQLite 数据库（feeds.db）
+├── source/              # 源文件（不纳入版本控制）
+│   └── RSS_article/     # Agent 配置（SOUL.md / USER.md）
+├── export_lumen_to_output.py  # 文章导出脚本
+└── run_rss_export.sh    # 导出脚本包装
 ```
 
-## 快速开始
+## 当前订阅源
 
-1. **复制模板**
-   ```bash
-   cp -r project-template your-project-name
-   cd your-project-name
-   ```
+- 老布的AI知识库 (`https://www.laobu.com/feed.xml`)
 
-2. **初始化项目元信息**
-   编辑 `.42cog/meta/meta.md`，填写项目基本信息
+## PM 阶段进度
 
-3. **定义现实约束**
-   编辑 `.42cog/real/real.md`，列出项目的现实约束（最多7条）
-
-4. **创建认知模型**
-   编辑 `.42cog/cog/cog.md`，定义项目的核心实体和关系
-
-5. **生成规约文档**
-   使用 `.42plugin/42edu/` 下的技能生成各类规约文档
-
-6. **开始编码**
-   在 `src/` 目录下开发代码
-
-## 认知敏捷法 (42COG)
-
-### RCSW 工作流
-
-```
-Real (现实约束) → Cog (认知模型) → Spec (规约文档) → Work (实际作品)
-```
-
-## 更多资源
-
-- 认知敏捷法文档: https://github.com/42ailab/42cog
-- 活水插件平台: https://42plugin.com
-- 活水AI实验室: https://42ailab.com
+| Phase | 名称 | 状态 |
+|-------|------|------|
+| Phase 1 | 设计思维阶段 | 已完成 |
+| Phase 2 | 软件工程架构阶段 | 未开始 |
+| Phase 3 | Sprint 规划与开发交付 | 未开始 |

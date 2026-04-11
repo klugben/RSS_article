@@ -11,8 +11,9 @@
 ## 核心流程
 
 ```
-lumen fetch → feeds.db → OpenClaw Agent（每日 8:00 Cron）
-  → 按主题分类 → 生成摘要（≤400字） → 飞书群组推送
+每30分钟: lumen fetch → 写入 feeds.db（系统 crontab）
+每日 8:00: OpenClaw RSS Agent → 读 feeds.db
+  → 按主题分类 → 生成摘要（≤800字） → 飞书群组推送
 ```
 
 ## 目录结构
